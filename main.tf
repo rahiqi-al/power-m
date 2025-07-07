@@ -6,4 +6,8 @@ module "vm" {
   image_name    = var.image_name
   memory        = var.memory
   vcpus         = var.vcpus
+
+  providers = {
+    nutanix = nutanix
+  }
 }

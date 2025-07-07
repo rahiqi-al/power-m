@@ -1,3 +1,12 @@
+terraform {
+  required_providers {
+    nutanix = {
+      source  = "nutanix/nutanix"
+      version = "~> 2.2.0"
+    }
+  }
+}
+
 data "nutanix_clusters" "cluster" {
   filter = "name==${var.cluster_name}"
 }

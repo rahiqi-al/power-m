@@ -4,9 +4,9 @@ terraform {
       source  = "nutanix/nutanix"
       version = "~> 2.2.0"
     }
-    morpheus = {
-      source  = "morpheusdata/morpheus"
-      version = "~> 0.9.6"  
-    }
+    # morpheus = {
+    #   source  = "morpheusdata/morpheus"
+    #   version = "~> 0.9.6"  
+    # }
   }
 }

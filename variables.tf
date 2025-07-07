@@ -1,6 +1,6 @@
-variable "morpheus_url" {}
-variable "morpheus_username" {}
-variable "morpheus_password" {}
+# variable "morpheus_url" {}
+# variable "morpheus_username" {}
+# variable "morpheus_password" {}
 variable "nutanix_username" {}
 variable "nutanix_password" {}
 variable "nutanix_endpoint" {}

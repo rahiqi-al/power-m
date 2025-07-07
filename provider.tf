@@ -1,8 +1,8 @@
-provider "morpheus" {
-  url      = var.morpheus_url      
-  username = var.morpheus_username 
-  password = var.morpheus_password 
-}
+# provider "morpheus" {
+#   url      = var.morpheus_url      
+#   username = var.morpheus_username 
+#   password = var.morpheus_password 
+# }
 
 
 provider "nutanix" {
