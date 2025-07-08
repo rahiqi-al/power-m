@@ -1,5 +1,5 @@
 nutanix_username = "svc.mcm.ldap"
-nutanix_password = "£þÌÎç\"|<øT?8pñfRxòö="
+nutanix_password = "£þÌÎç\\\"|<øT?8pñfRxòö="
 nutanix_endpoint = "https://102.222.176.85:9440"
 cluster_name     = "ATLASCS-PRD"
 subnet_name      = "DMZ-VID-83"
