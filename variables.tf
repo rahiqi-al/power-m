@@ -1,8 +1,14 @@
 # variable "morpheus_url" {}
 # variable "morpheus_username" {}
 # variable "morpheus_password" {}
-variable "nutanix_username" {}
-variable "nutanix_password" {}
+variable "nutanix_username" {
+  type = string
+  sensitive = true
+}
+variable "nutanix_password" {
+  type = string
+  sensitive = true
+}
 variable "nutanix_endpoint" {}
 variable "cluster_name" {}
 variable "subnet_name" {}

@@ -7,21 +7,17 @@ terraform {
   }
 }
 
-data "nutanix_clusters" "cluster" {
-  filter = "name==${var.cluster_name}"
-}
+data "nutanix_clusters" "all_clusters" {}
 
-data "nutanix_subnets" "subnet" {
-  filter = "name==${var.subnet_name}"
-}
+data "nutanix_subnets" "all_subnets" {}
 
-data "nutanix_images" "image" {
-  filter = "name==${var.image_name}"
+data "nutanix_image" "image" {
+  image_name = var.image_name
 }
 
 resource "nutanix_virtual_machine" "ubuntu_vm" {
   name                 = var.vm_name
-  cluster_id           = data.nutanix_clusters.cluster.entities[0].id
+  cluster_uuid         = try([for c in data.nutanix_clusters.all_clusters.entities : c.metadata.uuid if c.name == var.cluster_name][0], null)
   num_vcpus_per_socket = var.vcpus
   num_sockets          = 1
   memory_size_mib      = var.memory
@@ -29,7 +25,7 @@ resource "nutanix_virtual_machine" "ubuntu_vm" {
   disk_list {
     data_source_reference = {
       kind = "image"
-      uuid = data.nutanix_images.image.entities[0].id
+      uuid = data.nutanix_image.image.id  
     }
     device_properties {
       device_type = "DISK"
@@ -37,6 +33,6 @@ resource "nutanix_virtual_machine" "ubuntu_vm" {
   }
 
   nic_list {
-    subnet_uuid = data.nutanix_subnets.subnet.entities[0].id
+    subnet_uuid = try([for s in data.nutanix_subnets.all_subnets.entities : s.metadata.uuid if s.name == var.subnet_name][0], null)
   }
 }
