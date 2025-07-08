@@ -1,6 +1,6 @@
 nutanix_username = "svc.mcm.ldap"
 nutanix_password = "£þÌÎç\"|<øT?8pñfRxòö="
-nutanix_endpoint = "102.222.176.85"
+nutanix_endpoint = "https://102.222.176.85:9440"
 cluster_name     = "ATLASCS-PRD"
 subnet_name      = "DMZ-VID-83"
 image_name       = "ubuntu-22.04-server-cloudimg-amd64.img"
